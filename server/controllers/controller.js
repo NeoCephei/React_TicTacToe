@@ -13,7 +13,7 @@ const getTasks = async (req, res) => { // Get HTTP
 
 const postTask = async (req, res) => { // Post HTTP
   try {
-    const content = req.body.content    //I could do {content} = req.body
+    const {content} = req.body    //I could do {content} = req.body
     const task = await Task.create({content}) //This means content:content
     res.status(201);
     res.send(task);

@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/NeoCephei/React_TicTacToe/issues"
   },
-  "homepage": "https://github.com/NeoCephei/React_TicTacToe#readme"
+  "homepage": "https://github.com/NeoCephei/React_TicTacToe#readme",
+  "dependencies": {}
 }
