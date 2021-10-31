@@ -1,0 +1,19 @@
+{
+  "name": "react_tictactoe",
+  "version": "1.0.0",
+  "description": "I had a tictactoe project already on my newbie projects, but I wanted to try to do it using react!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeoCephei/React_TicTacToe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeoCephei/React_TicTacToe/issues"
+  },
+  "homepage": "https://github.com/NeoCephei/React_TicTacToe#readme"
+}
