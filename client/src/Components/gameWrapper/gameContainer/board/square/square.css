@@ -5,5 +5,14 @@
   border: solid 1px #000;
 
   text-align: center;
-  line-height:250px;
+  line-height:210px;
+}
+
+.dropzone{
+  margin: 20px auto;
+  height: 210px;
+  width: 210px;
+  border: dashed 4px rgba(255, 255, 255);
+  border-radius: 50%;
+  background-color: rgb(204, 204, 204);
 }

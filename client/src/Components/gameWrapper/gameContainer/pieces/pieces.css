@@ -1,0 +1,20 @@
+
+.player{
+  text-align: center;
+}
+.player > h1 {
+  text-decoration: underline;
+}
+.pieces {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.pieces > div {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: gray;
+  border-radius: 100%
+}

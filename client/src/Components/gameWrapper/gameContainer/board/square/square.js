@@ -6,7 +6,7 @@ function Square (props) {
 
   return (
     <div className="square">
-      {squareValue}
+      <div className="dropzone">Dropzone #{squareValue}</div>
     </div>
   )
 }
