@@ -46,3 +46,7 @@
   height: 175px;
   line-height: 175px;
 }
+
+.player2{
+  filter: grayscale();
+}

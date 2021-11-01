@@ -1,24 +1,26 @@
 import './pieces.css'
-import React, {useState}from 'react'
+import React from 'react'
 
 function Player1Pieces (props) {
 
-  const [smallPieces, setSmallPieces] = useState(3);
-  const [mediumPieces, setMediumPieces] = useState(3);
-  const [largePieces, setLargePieces] = useState(3);
+  const {playerPieces} = props;
+  const {small,medium,large} = playerPieces
 
   return (
     <div className="player">
       <h1>Player 1</h1>
       <div className="pieces">
         <div>
-          <div className="piece s-piece">x {smallPieces}</div>
+          <div draggable id="small1" className="piece s-piece player1" 
+            onDragStart={(e) => {props.handleDragStart(e)}}>x {small}</div>
         </div>
         <div>
-          <div className="piece m-piece">x {mediumPieces}</div>
+          <div draggable id="medium1" className="piece m-piece player1" 
+            onDragStart={(e) => {props.handleDragStart(e)}}>x {medium}</div>
         </div>
         <div>
-          <div className="piece l-piece">x {largePieces}</div>
+          <div draggable id="large1" className="piece l-piece player1"
+            onDragStart={(e) => {props.handleDragStart(e)}}>x {large}</div>
         </div>
       </div>
     </div>

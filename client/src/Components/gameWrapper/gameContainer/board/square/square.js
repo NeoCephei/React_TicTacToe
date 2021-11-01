@@ -2,11 +2,14 @@ import './square.css'
 import React from 'react'
 
 function Square (props) {
-  const {squareValue} = props
+  const {squareValue, handleDragEnter} = props
+
+  // console.log(squareValue)
 
   return (
     <div className="square">
-      <div className="dropzone">Dropzone #{squareValue}</div>
+      <div id={'dropzone'+squareValue}className="dropzone droppable"
+      onDragEnter={(e) => {handleDragEnter(e)}}>Dropzone #{squareValue}</div>
     </div>
   )
 }

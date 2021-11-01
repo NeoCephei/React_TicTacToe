@@ -9,4 +9,5 @@
   align-content: center;
 
   background-color: rgba(125, 229, 255, 0);
+  user-select: none;
 }
