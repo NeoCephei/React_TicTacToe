@@ -15,6 +15,34 @@
   width: 200px;
   height: 200px;
   margin: 0 auto;
-  background-color: gray;
-  border-radius: 100%
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.piece{
+  margin: 0 auto;
+  border-radius: 100%;
+  color: white;
+}
+.piece:hover{
+  cursor: pointer;
+}
+.s-piece{
+  background-color:blue;
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+}
+.m-piece{
+  background-color:green;
+  width: 120px;
+  height: 125px;
+  line-height: 125px;
+}
+.l-piece{
+  background-color:red;
+  width: 175px;
+  height: 175px;
+  line-height: 175px;
 }
