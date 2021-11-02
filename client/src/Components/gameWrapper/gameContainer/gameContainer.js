@@ -9,9 +9,8 @@ import Player2Pieces from './pieces/player2Pieces'
 
 function GameContainer (props) {
 
-
-  let [level, counter] = useState(0)
-  const board = [...Array(9).keys()];
+  const {turn, changeTurn, board, updateBoard, game} = props
+  const [movement, setMovement] = useState(0)
   const [player1Pieces, setPlayer1Pieces] = useState({
     small: 3,
     medium: 3,
@@ -36,23 +35,20 @@ function GameContainer (props) {
     }
   }
   const handleDragLeave = (e) => {
-    // console.log('drag leave trigger: ',e)
-    dropZone.current = null;
-    console.log(dropZone);
+    console.log('drag leave')
+    // dropZone.current = null;
   }
   const handleDragEnd = (e) => {
     // console.log('onDragEnd: ', dragItem, dropZone);
-    // console.log('onDragEnd: ', e);
-
     if (!dropZone.current || e.target.innerHTML.split('').includes('0')) {
       return;
     }
     const node = e.target.cloneNode(false);
     const pieceSize = node.id.slice(0, -1);
     const player = node.classList.contains('player1') ? 'player1' : 'player2';
+    if (movement === 0 && pieceSize !== 'small') return;
 
     const available = checkAvailability(dropZone.current.target.children, pieceSize, player);
-
     if(!available) return;
 
     if (node.classList.contains('player1')){   
@@ -69,19 +65,25 @@ function GameContainer (props) {
     dropZone.current.target.innerHTML = '';
     dropZone.current.target.innerHTML = node.outerHTML;
     dragItem.current.removeEventListener('dragend', handleDragEnd);
+
+    updateBoard(dropZone.current.target.id.slice(-1));
+
     dragItem.current = null;
     dropZone.current = null;
+
+    setMovement(movement + 1);
+    changeTurn(turn,game);
   }
 
 
 
   return (
     <div className="gameContainer">
-      <Player1Pieces playerPieces={player1Pieces} handleDragStart={handleDragStart}/>
+      <Player1Pieces playerPieces={player1Pieces} turn={turn} handleDragStart={handleDragStart}/>
       <Board board={board} 
         handleDragEnter={handleDragEnter} 
         handleDragLeave={handleDragLeave}/>
-      <Player2Pieces playerPieces={player2Pieces} handleDragStart={handleDragStart}/>
+      <Player2Pieces playerPieces={player2Pieces} turn={turn} handleDragStart={handleDragStart}/>
     </div>
   )
 }

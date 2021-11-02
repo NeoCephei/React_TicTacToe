@@ -1,8 +1,8 @@
 import './notifications.css'
-import React, {useState} from 'react'
+import React from 'react'
 
 function Notifications (props) {
-  const [notification, setNotifications] = useState('Hello from notifications');
+  const {notification} = props
 
   return (
     <div className="notifications">
