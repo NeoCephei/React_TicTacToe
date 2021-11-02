@@ -23,30 +23,37 @@
 .piece{
   margin: 0 auto;
   border-radius: 100%;
-  color: white;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: x-large;
 }
 .piece:hover{
   cursor: pointer;
 }
 .s-piece{
-  background-color:blue;
   width: 75px;
   height: 75px;
   line-height: 75px;
 }
 .m-piece{
-  background-color:green;
   width: 120px;
   height: 125px;
   line-height: 125px;
 }
 .l-piece{
-  background-color:red;
   width: 175px;
   height: 175px;
   line-height: 175px;
 }
-
+.player1{
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/56/Pok%C3%A9mon_Fire_Type_Icon.svg);
+  /* background-image: url(https://www.seekpng.com/png/full/353-3532499_badgeleopard-the-energy-types-of-the-pokemon-tcg.png); */
+  background-size: cover;
+  background-position: center;
+}
 .player2{
-  filter: grayscale();
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pok%C3%A9mon_Water_Type_Icon.svg/1024px-Pok%C3%A9mon_Water_Type_Icon.svg.png);
+  background-size: cover;
+  background-position: center;
+  /* color: #000; */
 }

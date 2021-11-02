@@ -9,7 +9,7 @@ import Player2Pieces from './pieces/player2Pieces'
 
 function GameContainer (props) {
 
-  const {turn, changeTurn, board, updateBoard, game} = props
+  const {turn, board, updateBoard} = props
   const [movement, setMovement] = useState(0)
   const [player1Pieces, setPlayer1Pieces] = useState({
     small: 3,
@@ -35,7 +35,7 @@ function GameContainer (props) {
     }
   }
   const handleDragLeave = (e) => {
-    console.log('drag leave')
+    // console.log('drag leave')
     // dropZone.current = null;
   }
   const handleDragEnd = (e) => {
@@ -46,7 +46,7 @@ function GameContainer (props) {
     const node = e.target.cloneNode(false);
     const pieceSize = node.id.slice(0, -1);
     const player = node.classList.contains('player1') ? 'player1' : 'player2';
-    if (movement === 0 && pieceSize !== 'small') return;
+    if (movement <= 1 && pieceSize !== 'small') return;
 
     const available = checkAvailability(dropZone.current.target.children, pieceSize, player);
     if(!available) return;
@@ -72,7 +72,6 @@ function GameContainer (props) {
     dropZone.current = null;
 
     setMovement(movement + 1);
-    changeTurn(turn,game);
   }
 
 

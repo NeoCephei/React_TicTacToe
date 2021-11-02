@@ -11,16 +11,16 @@ function Player2Pieces (props) {
       <h1>Player 2</h1>
       <div className="pieces">
         <div>
-          <div draggable={turn ? 'true' : 'false'} id="small2" className="piece s-piece player2" 
-            onDragStart={(e) => {handleDragStart(e)}}>x {small}</div>
+          <div draggable={turn ? 'false' : 'true'} id="small2" className="piece s-piece player2" 
+            onDragStart={(e) => {handleDragStart(e)}}>x{small}</div>
         </div>
         <div>
-          <div draggable={turn ? 'true' : 'false'} id="medium2" className="piece m-piece player2" 
-            onDragStart={(e) => {handleDragStart(e)}}>x {medium}</div>
+          <div draggable={turn ? 'false' : 'true'} id="medium2" className="piece m-piece player2" 
+            onDragStart={(e) => {handleDragStart(e)}}>x{medium}</div>
         </div>
         <div>
-          <div draggable={turn ? 'true' : 'false'} id="large2" className="piece l-piece player2"
-            onDragStart={(e) => {handleDragStart(e)}}>x {large}</div>
+          <div draggable={turn ? 'false' : 'true'} id="large2" className="piece l-piece player2"
+            onDragStart={(e) => {handleDragStart(e)}}>x{large}</div>
         </div>
       </div>
     </div>

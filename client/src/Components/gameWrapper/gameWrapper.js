@@ -7,37 +7,35 @@ import GameContainer from './gameContainer/gameContainer'
 function GameWrapper (props) {
 
   const [game, setGame] = useState(true)
-  const [turn, setTurn] = useState(false)
+  const [turn, setTurn] = useState(true)
   const [board, setBoard] = useState([...Array(9).keys()]);
   const [notification, setNotifications] = useState('In the meantime player1 always start');
-
-  const changeTurn = (boolTurn, gameover) => {
-    console.log(boolTurn, gameover, game);
-    const player = boolTurn ? 'Player 1' : 'Player 2';
-    if (game){
-      setTurn(!boolTurn)
-      setNotifications(`${player} turns`)
-    } else {
-      setNotifications(`${player} Won!!`);
-    }
-  }
-
+  
   const updateBoard = (index) => {
     const player = turn ? 'Player 1' : 'Player 2';
-    const newArray =[...board]
+    const newArray =[...board];
     newArray[index*1] = player;
     setBoard(newArray)
     
     if(checkWinCondition(newArray)) {
-      console.log('Winner!')
-      setGame(false);
+      // console.log('Winner!')
+      setGame(!game);
+      setNotifications(`${player} Won!!`)
+    } else {
+      // console.log('Keep Playing')
+      changeTurn(turn ? 'Player 2' : 'Player 1')
     }
+  }
+  
+  const changeTurn = (player) => {
+    setTurn(!turn)
+    setNotifications(`${player} turns`)
   }
 
   return (
     <div className="gameWrapper">
       <Notifications notification={notification}/>
-      <GameContainer turn={turn} board={board} game={game} changeTurn={changeTurn} updateBoard={updateBoard}/>
+      <GameContainer turn={turn} board={board} updateBoard={updateBoard}/>
     </div>
   )
 }

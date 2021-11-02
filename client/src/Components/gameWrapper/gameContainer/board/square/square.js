@@ -4,8 +4,6 @@ import React from 'react'
 function Square (props) {
   const {squareValue, handleDragEnter} = props
 
-  // console.log(squareValue)
-
   return (
     <div className="square">
       <div id={'dropzone'+squareValue}className="dropzone droppable"

@@ -4,4 +4,10 @@
   
   display: flex;
   flex-wrap: wrap;
+
+  border-radius: 30px;
+
+  background-image: url(https://www.pokemonaustralia.com/wp-content/uploads/2017/05/play-pokemon-generic-169.jpg);
+  background-size: cover;
+  background-position: center;
 }
