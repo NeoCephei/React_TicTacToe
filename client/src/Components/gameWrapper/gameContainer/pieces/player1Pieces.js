@@ -3,7 +3,7 @@ import React from 'react'
 
 function Player1Pieces (props) {
 
-  const {playerPieces} = props;
+  const {playerPieces, handleDragStart} = props;
   const {small,medium,large} = playerPieces
 
   return (
@@ -12,15 +12,15 @@ function Player1Pieces (props) {
       <div className="pieces">
         <div>
           <div draggable id="small1" className="piece s-piece player1" 
-            onDragStart={(e) => {props.handleDragStart(e)}}>x {small}</div>
+            onDragStart={(e) => {handleDragStart(e)}}>x {small}</div>
         </div>
         <div>
           <div draggable id="medium1" className="piece m-piece player1" 
-            onDragStart={(e) => {props.handleDragStart(e)}}>x {medium}</div>
+            onDragStart={(e) => {handleDragStart(e)}}>x {medium}</div>
         </div>
         <div>
           <div draggable id="large1" className="piece l-piece player1"
-            onDragStart={(e) => {props.handleDragStart(e)}}>x {large}</div>
+            onDragStart={(e) => {handleDragStart(e)}}>x {large}</div>
         </div>
       </div>
     </div>

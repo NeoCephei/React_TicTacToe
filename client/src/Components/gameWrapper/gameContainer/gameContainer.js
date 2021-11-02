@@ -5,10 +5,12 @@ import Board from './board/board'
 import Player1Pieces from './pieces/player1Pieces'
 import Player2Pieces from './pieces/player2Pieces'
 
-import helpers from './../../../Helpers/helperFunctions'
+// import helpers from './../../../Helpers/helperFunctions'
 
 function GameContainer (props) {
 
+
+  let [level, counter] = useState(0)
   const board = [...Array(9).keys()];
   const [player1Pieces, setPlayer1Pieces] = useState({
     small: 3,
@@ -20,8 +22,6 @@ function GameContainer (props) {
     medium: 3,
     large: 3
   });
-  // const [board, setBoard] = useState([...Array(9).keys()])
-  
 
   const dragItem = useRef();
   const dropZone = useRef();
@@ -35,8 +35,14 @@ function GameContainer (props) {
       dropZone.current = e;
     }
   }
+  const handleDragLeave = (e) => {
+    // console.log('drag leave trigger: ',e)
+    dropZone.current = null;
+    console.log(dropZone);
+  }
   const handleDragEnd = (e) => {
     // console.log('onDragEnd: ', dragItem, dropZone);
+    // console.log('onDragEnd: ', e);
 
     if (!dropZone.current || e.target.innerHTML.split('').includes('0')) {
       return;
@@ -71,9 +77,11 @@ function GameContainer (props) {
 
   return (
     <div className="gameContainer">
-      <Player1Pieces handleDragStart={handleDragStart} playerPieces={player1Pieces}/>
-      <Board board={board} handleDragEnter={handleDragEnter}/>
-      <Player2Pieces handleDragStart={handleDragStart} playerPieces={player2Pieces}/>
+      <Player1Pieces playerPieces={player1Pieces} handleDragStart={handleDragStart}/>
+      <Board board={board} 
+        handleDragEnter={handleDragEnter} 
+        handleDragLeave={handleDragLeave}/>
+      <Player2Pieces playerPieces={player2Pieces} handleDragStart={handleDragStart}/>
     </div>
   )
 }

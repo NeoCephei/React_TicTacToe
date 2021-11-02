@@ -23,4 +23,5 @@
 
 .dropzone > div{
   align-self: center;
+  pointer-events: none;
 }
